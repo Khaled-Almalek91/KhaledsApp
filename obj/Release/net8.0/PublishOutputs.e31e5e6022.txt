@@ -1,0 +1,7 @@
+C:\Users\dator\OneDrive\Desktop\App\Dev\KhaledsApp\bin\Release\net8.0\publish\KhaledsApp.exe
+C:\Users\dator\OneDrive\Desktop\App\Dev\KhaledsApp\bin\Release\net8.0\publish\appsettings.Development.json
+C:\Users\dator\OneDrive\Desktop\App\Dev\KhaledsApp\bin\Release\net8.0\publish\appsettings.json
+C:\Users\dator\OneDrive\Desktop\App\Dev\KhaledsApp\bin\Release\net8.0\publish\KhaledsApp.dll
+C:\Users\dator\OneDrive\Desktop\App\Dev\KhaledsApp\bin\Release\net8.0\publish\KhaledsApp.deps.json
+C:\Users\dator\OneDrive\Desktop\App\Dev\KhaledsApp\bin\Release\net8.0\publish\KhaledsApp.runtimeconfig.json
+C:\Users\dator\OneDrive\Desktop\App\Dev\KhaledsApp\bin\Release\net8.0\publish\KhaledsApp.pdb
