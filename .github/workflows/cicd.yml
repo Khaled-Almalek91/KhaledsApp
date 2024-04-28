@@ -12,38 +12,52 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v2
+
       - name: Setup .NET
-        uses: actions/setup-dotnet@v4
+        uses: actions/setup-dotnet@v2
         with:
-          dotnet-version: 8.0.x
+          dotnet-version: '5.0.x'
+
       - name: Restore dependencies
         run: dotnet restore
+
       - name: Build
-        run: dotnet build --no-restore
+        run: dotnet build --configuration Release --no-restore
+
       - name: Test
         run: dotnet test --no-build --verbosity normal
+
+      - name: Publish Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: app-artifacts
+          path: ./path/to/your/artifacts  # Specify the path to your build artifacts (e.g., ./bin/Release/net5.0/publish)
 
   deploy:
     runs-on: self-hosted
     needs: build
+
     steps:
       - name: Download the artifacts from Github (from the build job)
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v2
         with:
           name: app-artifacts
 
       - name: Stop the application service
         run: |
-          sudo systemctl stop GithubActionsDemooo.service
+          sudo systemctl stop GithubActionsDemo.service
 
       - name: Deploy the application
         run: |
-          sudo rm -Rf /opt/GithubActionsDemooo || true
-          sudo cp -r /home/azureuser/actions-runner/_work/GithubActionsDemo/GithubActionsDemo /opt/GithubActionsDemo
+          sudo rm -Rf /opt/GithubActionsDemo || true
+          sudo cp -r ${{ github.workspace }}/path/to/your/artifacts /opt/GithubActionsDemo  # Use the correct path to artifacts
 
       - name: Start the application service
         run: |
-          sudo systemctl start GithubActionsDemooo.service
+          sudo systemctl start GithubActionsDemo.service
+
 
