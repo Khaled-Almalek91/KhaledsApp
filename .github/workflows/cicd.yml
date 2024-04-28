@@ -36,14 +36,14 @@ jobs:
 
       - name: Stop the application service
         run: |
-          sudo systemctl stop GithubActionsDemo.service
+          sudo systemctl stop GithubActionsDemooo.service
 
       - name: Deploy the application
         run: |
-          sudo rm -Rf /opt/GithubActionsDemo || true
+          sudo rm -Rf /opt/GithubActionsDemooo || true
           sudo cp -r /home/azureuser/actions-runner/_work/GithubActionsDemo/GithubActionsDemo /opt/GithubActionsDemo
 
       - name: Start the application service
         run: |
-          sudo systemctl start GithubActionsDemo.service
+          sudo systemctl start GithubActionsDemooo.service
 
